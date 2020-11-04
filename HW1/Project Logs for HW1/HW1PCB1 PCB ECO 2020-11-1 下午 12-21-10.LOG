@@ -1,0 +1,12 @@
+Removed Member From Class: ClassName=HW1 Member=Thermalsensor1
+Added Component: Designator=Thermalsnesor1(Q3+1)
+Add component (AddParameter): Name = "Code_JEDEC"; Value = "TO-226-AA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.maxim-ic.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://datasheets.maxim-ic.com/en/ds/DS18B20.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "2007"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "TO-92 Package, Body Dia. 4.7mm; Leads 0.51 x 0.51 mm (max), Pb-Free"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "Q3+1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "revB, 2009"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=HW1 Member=Component Thermalsnesor1 DS18B20+
