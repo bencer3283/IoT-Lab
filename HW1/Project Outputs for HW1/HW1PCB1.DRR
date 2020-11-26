@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: HW1PCB1.PcbDoc   2020/11/26  ¤U¤È 03:25:47
+NCDrill File Report For: HW1PCB1.PcbDoc   2020/11/26  ¤U¤È 11:54:15
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -15,10 +15,9 @@ T4      32mil (0.8mm)                                             Slot          
 T5      35mil (0.9mm)                                             Round             9         PTH        0.00inch (0.00mm)
 T6      36mil (0.91mm)                                            Round             4         PTH        0.00inch (0.00mm)
 T7      39mil (1mm)                                               Slot              3         PTH        0.00inch (0.00mm)
-T8      43mil (1.1mm)                                             Round             2         PTH        0.00inch (0.00mm)
-T9      79mil (2mm)                                               Round             4         PTH        0.00inch (0.00mm)
-T10     94mil (2.4mm)                                             Round             1         NPTH       0.00inch (0.00mm)
+T8      79mil (2mm)                                               Round             4         PTH        0.00inch (0.00mm)
+T9      94mil (2.4mm)                                             Round             1         NPTH       0.00inch (0.00mm)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              63
+Totals                                                                              61
 
-Total Processing Time (hh:mm:ss) : 00:00:01
+Total Processing Time (hh:mm:ss) : 00:00:00

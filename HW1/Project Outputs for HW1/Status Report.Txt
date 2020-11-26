@@ -10,4 +10,4 @@ From  : Project [HW1.PrjPcb]
 Files Generated   : 4
 Documents Printed : 0
 
-Finished Output Generation At ¤U¤È 03:25:48 On 2020/11/26
+Finished Output Generation At ¤U¤È 11:54:16 On 2020/11/26
