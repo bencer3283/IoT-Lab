@@ -5,7 +5,8 @@
 [TSX-3225 data sheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_TSX-3225&lang=en): C~L~ = 9 pF
 
 ## To-Do
-- [ ] calculate appropriate capacitance for TSX-3225
+- [x] calculate appropriate capacitance for TSX-3225
+C~e~=2\*C~L~-C~i~-C~s~=2\*9-
 
 ## Testing Log
 - 02/19
@@ -30,6 +31,11 @@
     3. invalid device signature = 0x000000 &Rarr; remove analogdecouple2 inductor to get it working again &Rarr; after two success burning and re-connect, it stop working
         - **AREF must be connected to GND with a capacitor of 0.1 uf**
     4. new board: MCU + alternate Crystal &rArr; invalid device signature = 0x000000
+- 03/10
+    1. no test
+    2. working after swap crystal capacitor to ceramic DIP one, and use another computer to burn **success for only once**
+    3. swap crystal capacitor to ceramic DIP one
+    4. no test
 
 
 ## MCU
