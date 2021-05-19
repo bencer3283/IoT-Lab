@@ -7,6 +7,10 @@ byte tempHead[] = {0x7E, 0x00, 0x1c, 0x10, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
 byte illuHead[] = {0x10, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 
 0x00, 0x00, 0x00, 0xFF, 0xFE, 0x00, 0x00, 0x69,0x6c,0x6c,0x75,0x6d,0x69,0x6e,0x61,0x74,0x69,0x6f,0x6e,0x3a};
 
+//byte illumination[] = {0x69,0x6c,0x6c,0x75,0x6d,0x69,0x6e,0x61,0x74,0x69,0x6f,0x6e,0x3a};
+
+byte temperature[] = {0x0d, 0x0a, 0x74,0x65,0x6d,0x70,0x65,0x72,0x61,0x74,0x75,0x72,0x65,0x3a};
+
 #include <XBee.h>
 #include <OneWire.h>
 #include<DallasTemperature.h>
@@ -32,13 +36,14 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  temperature();
-  illumination();
+  //temperature_tx();
+  //illumination_tx();
   Serial.write(transmitRequest_HelloWorld, sizeof(transmitRequest_HelloWorld));
+  packet();
   delay(500);
 }
 
-void temperature(){
+void temperature_tx(){
   int temp = 99;
   DS18B20.requestTemperatures();
   temp = DS18B20.getTempCByIndex(0);
@@ -54,7 +59,7 @@ void temperature(){
   Serial.write(0xFF - ( sum & 0xFF));
 }
 
-void illumination(){
+void illumination_tx(){
   int illu = analogRead(photodiode);
   byte illubyte[String(illu).length()+1];
   String(illu).getBytes(illubyte, sizeof(illubyte));
@@ -70,5 +75,41 @@ void illumination(){
   Serial.write(String(illu).length()+sizeof(illuHead));
   Serial.write(illuHead, sizeof(illuHead));
   Serial.write(illubyte, sizeof(illubyte)-1);
+  Serial.write(0xFF - ( sum & 0xFF));
+}
+
+void packet(){
+  //read illumination
+  int illu = analogRead(photodiode);
+  byte illubyte[String(illu).length()+1];
+  String(illu).getBytes(illubyte, sizeof(illubyte));
+
+  //read temperature
+  int temp = 99;
+  DS18B20.requestTemperatures();
+  temp = DS18B20.getTempCByIndex(0);
+  byte tempbyte[3];
+  String(temp).getBytes(tempbyte, 3);
+
+  //calculate sum
+  long sum = 0;
+  for(int i = 0; i < sizeof(illuHead); i++){
+    sum = sum + illuHead[i];
+  }
+  for(int i = 0; i < sizeof(illubyte)-1; i++){
+    sum = sum + illubyte[i];
+  }
+  for(int i = 0; i < sizeof(temperature); i++){
+    sum = sum + temperature[i];
+  }
+  sum = sum + tempbyte[0] + tempbyte[1];
+  
+  Serial.write(0x7e);
+  Serial.write(0x00);
+  Serial.write(String(illu).length()+sizeof(illuHead)+sizeof(temperature)+String(temp).length());
+  Serial.write(illuHead, sizeof(illuHead));
+  Serial.write(illubyte, sizeof(illubyte)-1);
+  Serial.write(temperature, sizeof(temperature));
+  Serial.write(tempbyte, sizeof(tempbyte)-1);
   Serial.write(0xFF - ( sum & 0xFF));
 }
