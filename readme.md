@@ -37,6 +37,13 @@ C~e~=2\*C~L~-C~i~-C~s~=2\*9-
     3. swap crystal capacitor to ceramic DIP one
     4. no test
 
+## Board design fault
+- tx/rx to XBee at wrong pin
+- power at ISP pin
+
+see re-wiring solution:
+![ ](https://imgur.com/XSoCj12.jpg)
+
 
 ## MCU
 1. Use Arduino to burn bootloader into MCU
